@@ -12,7 +12,7 @@ TrackMyRun is an intuitive web-based training plan visualization tool designed t
 
 ## Project Structure
 ```
-plan-viewer/
+TrackMyRun/
 ├── src/
 │   ├── js/
 │   │   ├── app.js
