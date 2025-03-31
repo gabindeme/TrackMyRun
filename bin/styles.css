@@ -1,0 +1,653 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --light-bg: #f9f9f9;
+    --dark-bg: #34495e;
+    --text-color: #333;
+    --light-text: #777;
+    --border-color: #ddd;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    
+    /* Session type colors */
+    --color-footing: #3498db;
+    --color-fractionne: #e74c3c;
+    --color-allure: #2ecc71;
+    --color-sortie: #9b59b6;
+    --color-course: #f39c12;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent; /* Désactive le highlight par défaut de Chrome sur mobile */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+header {
+    background-color: var(--dark-bg);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    margin: 1rem 0;
+    color: var(--dark-bg);
+    font-weight: 500;
+}
+
+h3 {
+    margin: 1rem 0 0.5rem;
+    color: var(--dark-bg);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.goal-banner {
+    background-color: var(--accent-color);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stats-panel, .progress-tracker {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden; /* Empêche le débordement du contenu */
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.session-distribution {
+    margin-top: 1rem;
+}
+
+.distribution-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+}
+
+.type-label {
+    font-weight: 500;
+}
+
+/* Progress Tracker Enhancements */
+.progress-visualization {
+    margin: 1.5rem 0;
+    width: 100%;
+    overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+    padding-bottom: 5px; /* Espace pour la scrollbar */
+}
+
+.week-progress {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    min-width: max-content; /* Assure que le contenu ne se compresse pas */
+}
+
+.week-label {
+    width: 100px;
+    font-size: 0.9rem;
+    color: var(--dark-bg);
+    font-weight: 500;
+    flex-shrink: 0; /* Empêche la compression */
+}
+
+.session-dots {
+    display: flex;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.session-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    flex-shrink: 0; /* Empêche la compression */
+}
+
+.session-dot:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.session-dot.completed {
+    background-color: var(--secondary-color);
+    border-color: var(--success-color);
+}
+
+.session-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.session-dot.completed::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Correction du tooltip pour les session-dot */
+.session-dot[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 30px; /* Ajusté pour être au-dessus du point */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    width: max-content; /* Assure que le texte ne soit pas coupé */
+    max-width: 200px; /* Limite la largeur maximale */
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.completion-rate {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    color: var(--dark-bg);
+}
+
+/* Weekly View */
+.weeks-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem 2rem;
+}
+
+.week-card {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.week-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.week-header:hover {
+    background-color: #2980b9;
+}
+
+.week-title {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.week-summary {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.week-distance {
+    font-weight: 500;
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+}
+
+.week-content {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.week-content.active {
+    max-height: 2000px;
+    padding: 1.5rem;
+}
+
+.week-objective {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sessions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.session-card {
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem;
+    background-color: var(--light-bg);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.session-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.session-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.session-day {
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+
+.session-type {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(52, 152, 219, 0.5);
+}
+
+.session-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.session-distance {
+    font-weight: 500;
+    color: var(--dark-bg);
+}
+
+.session-details {
+    font-size: 0.95rem;
+}
+
+.session-workout {
+    margin-bottom: 0.5rem;
+}
+
+.session-description {
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
+
+/* Hide the actual checkbox but keep the checkmark functionality */
+.session-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.completion-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 1rem;
+    position: relative;
+}
+
+.checkmark {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 3px;
+    margin-right: 6px;
+    transition: all 0.2s ease;
+}
+
+.session-checkbox:checked ~ .checkmark {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.session-checkbox:checked ~ .checkmark::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-label {
+    font-size: 0.8rem;
+    color: var(--dark-bg);
+}
+
+.completed-session {
+    border-left: 4px solid var(--secondary-color);
+    background-color: rgba(46, 204, 113, 0.1);
+}
+
+.completed-session .session-workout {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+/* Enhanced progress tracker section */
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s ease;
+    border: 1px solid var(--border-color);
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--dark-bg);
+}
+
+/* Weekly progress visualization - Correction de l'overflow */
+.weekly-progress-chart {
+    height: 150px;
+    margin: 1.5rem 0;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 25px;
+    overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+    min-height: 180px; /* Assure une hauteur minimale pour les étiquettes */
+}
+
+.chart-bar {
+    position: relative;
+    height: 0%;
+    background-color: var(--primary-color);
+    border-radius: 4px 4px 0 0;
+    transition: height 0.5s ease;
+    margin: 0 1%;
+    min-width: 20px; /* Largeur minimale pour les barres */
+    flex-shrink: 0; /* Empêche la compression */
+}
+
+.chart-bar.completed {
+    background-color: var(--secondary-color);
+}
+
+.chart-bar:hover {
+    opacity: 0.8;
+}
+
+.chart-label {
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+footer {
+    background-color: var(--dark-bg);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    
+    .week-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .week-summary {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+    }
+    
+    .session-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .session-actions {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+    }
+    
+    .progress-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .session-dots {
+        flex-wrap: wrap;
+    }
+    
+    .session-dot {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .session-dot::after {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .week-content.active {
+        padding: 1rem;
+    }
+    
+    .session-card {
+        padding: 0.8rem;
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.stat-card:nth-child(1) .stat-value {
+    color: var(--primary-color);
+}
+
+.stat-card:nth-child(2) .stat-value {
+    color: var(--secondary-color);
+}
+
+.stat-card:nth-child(3) .stat-value {
+    color: var(--accent-color);
+}
+
+.stat-card:nth-child(4) .stat-value {
+    color: var(--warning-color);
+}
+
+/* Tooltip styles - Correction pour tous les éléments avec title */
+[title] {
+    position: relative;
+}
+
+/* Désactive le tooltip par défaut */
+[title]::before,
+[title]::after {
+    display: none !important;
+}
+
+/* Crée un tooltip personnalisé pour les éléments autres que session-dot */
+[title]:not(.session-dot):hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    width: max-content;
+    max-width: 200px;
+    display: block !important;
+}
+
+/* Transitions */
+.week-content {
+    transition: max-height 0.5s ease-in-out, padding 0.3s ease;
+}
+
+.session-dot, .checkmark, .stat-card, .week-card, .session-card {
+    transition: all 0.3s ease;
+}
+
+/* Focus styles for accessibility */
+button:focus, input:focus, .week-header:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.session-checkbox:focus ~ .checkmark {
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5);
+}
+
+/* Styles pour les messages d'erreur */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
