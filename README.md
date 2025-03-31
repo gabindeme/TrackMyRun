@@ -1,8 +1,7 @@
-# Plan-viewer - Running Training Plan Tracker
+# TrackMyRun
 
 ## Description
-Plan-viewer is a web application that helps runners track their training progress for a 10K race program. It provides visual progress tracking, detailed statistics, and weekly session management.
-
+TrackMyRun is an intuitive web-based training plan visualization tool designed to help runners and all kind of sporty track their training progress. This interactive dashboard provides a clear overview of your training journey, helping you stay motivated and on track with your training goals.
 ## Features
 - 📊 Interactive progress tracking
 - 📈 Detailed training statistics
