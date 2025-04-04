@@ -1,6 +1,63 @@
+
+// Ajouter au début du fichier
+function checkAuth() {
+    const userData = localStorage.getItem('currentUser');
+    if (!userData) {
+        window.location.href = 'login.html';
+        return false;
+    }
+    
+    const user = JSON.parse(userData);
+    const loginTime = new Date(user.loginTime);
+    const now = new Date();
+    const hoursSinceLogin = (now - loginTime) / (1000 * 60 * 60);
+    
+    // Auto logout after 24 hours
+    if (hoursSinceLogin > 24) {
+        localStorage.removeItem('currentUser');
+        window.location.href = 'login.html';
+        return false;
+    }
+    
+    // Update username display
+    const usernameElement = document.querySelector('.username');
+    if (usernameElement) {
+        usernameElement.textContent = user.displayName;
+    }
+    
+    return true;
+}
+
+// Add logout handler
+document.getElementById('logoutBtn')?.addEventListener('click', function() {
+    localStorage.removeItem('currentUser');
+    window.location.href = 'login.html';
+});
+
+// Modifier la fonction saveProgress
+function saveProgress() {
+    const currentUser = localStorage.getItem('currentUser');
+    const progress = {};
+    
+    document.querySelectorAll('.session-dot').forEach(dot => {
+        const weekIndex = dot.getAttribute('data-week');
+        const sessionIndex = dot.getAttribute('data-session');
+        const isCompleted = dot.classList.contains('completed');
+        
+        if (!progress[weekIndex]) {
+            progress[weekIndex] = {};
+        }
+        
+        progress[weekIndex][sessionIndex] = isCompleted;
+    });
+    
+    localStorage.setItem(`trainingProgress_${currentUser}`, JSON.stringify(progress));
+}
+
+// Ajouter en haut du DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Load the JSON data
-    fetch('training-plan.json')
+    if (!checkAuth()) return;
+    fetch('training-plan_v1.1.json')
         .then(response => response.json())
         .then(data => {
             initializeWebsite(data);
@@ -15,6 +72,15 @@ function initializeWebsite(data) {
     
     // Store the plan data globally for later use
     window.trainingPlan = plan;
+    
+    // Update page title and header with error checking
+    const pageTitle = document.getElementById('page-title');
+    const pageTitleHeader = document.getElementById('page-title-header');
+    const planObjective = document.getElementById('plan-objective');
+
+    if (pageTitle) pageTitle.textContent = data.titre;
+    if (pageTitleHeader) pageTitleHeader.textContent = data.titre;
+    if (planObjective) planObjective.textContent = data.objectif;
     
     // Generate statistics
     generateStatistics(plan);
@@ -110,7 +176,7 @@ function generateProgressTracker(plan) {
                                 data-week="${weekIndex}" 
                                 data-session="${sessionIndex}"
                                 data-id="session-${weekIndex}-${sessionIndex}"
-                                data-distance="${parseFloat(session.distance.split(' ')[0])}"
+                                data-distance="${parseFloat(session.distance.split(' ')[0])} "
                                 title="${session.jour}: ${session.type} - ${session.details}">
                             </div>
                         `).join('')}
@@ -246,14 +312,21 @@ function generateWeeklyViews(plan) {
                 </div>
                 <div class="sessions-container">
                     ${week.seances.map((session, sessionIndex) => {
-                        const sessionTypeClass = `type-${session.type.toLowerCase().replace(' ', '-')}`;
+                        // const sessionType = session.type.toLowerCase().replace(/\s+/g, '-');
+                        const sessionType = session.type
+                                    .toLowerCase()
+                                    .normalize('NFD')
+                                    .replace(/[\u0300-\u036f]/g, '') // Enlève les accents
+                                    .replace(/[^a-z]/g, '-') // Remplace tout ce qui n'est pas une lettre par un tiret
+                                    .replace(/-+/g, '-') // Remplace les tirets multiples par un seul
+                                    .replace(/^-|-$/g, ''); // Enlève les tirets au début et à la fin
                         const sessionId = `session-${weekIndex}-${sessionIndex}`;
                         return `
-                            <div class="session-card" data-id="${sessionId}">
+                            <div class="session-card" data-type="${sessionType}" data-id="${sessionId}">
                                 <div class="session-header">
                                     <div>
                                         <span class="session-day">${session.jour}</span>
-                                        <span class="session-type ${sessionTypeClass}">${session.type}</span>
+                                        <span class="session-type type-${sessionType}">${session.type}</span>
                                     </div>
                                     <div class="session-actions">
                                         <label class="completion-checkbox">
@@ -264,7 +337,7 @@ function generateWeeklyViews(plan) {
                                                 data-distance="${parseFloat(session.distance.split(' ')[0])}">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <span class="session-distance">${session.distance}</span>
+                                        <span class="session-distance">${session.distance} km</span>
                                     </div>
                                 </div>
                                 <div class="session-details">
@@ -340,28 +413,10 @@ function addEventListeners() {
     });
 }
 
-// Save progress to local storage
-function saveProgress() {
-    const progress = {};
-    
-    document.querySelectorAll('.session-dot').forEach(dot => {
-        const weekIndex = dot.getAttribute('data-week');
-        const sessionIndex = dot.getAttribute('data-session');
-        const isCompleted = dot.classList.contains('completed');
-        
-        if (!progress[weekIndex]) {
-            progress[weekIndex] = {};
-        }
-        
-        progress[weekIndex][sessionIndex] = isCompleted;
-    });
-    
-    localStorage.setItem('trainingProgress', JSON.stringify(progress));
-}
-
 // Load saved progress from local storage
 function loadSavedProgress() {
-    const savedProgress = localStorage.getItem('trainingProgress');
+    const currentUser = localStorage.getItem('currentUser');
+    const savedProgress = localStorage.getItem(`trainingProgress_${currentUser}`);
     
     if (savedProgress) {
         const progress = JSON.parse(savedProgress);
@@ -504,6 +559,7 @@ function createSessionCard(sessionData) {
     const sessionCard = document.createElement('div');
     sessionCard.className = 'session-card';
     sessionCard.dataset.id = sessionData.id || generateSessionId();
+    sessionCard.dataset.type = sessionData.type.toLowerCase(); // Add this line
     
     if (sessionData.completed) {
         sessionCard.classList.add('completed-session');

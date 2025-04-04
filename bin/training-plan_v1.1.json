@@ -1,0 +1,366 @@
+{
+  "titre": "Plan d'entraînement 10km",
+  "objectif": "Préparer un sub-40 10km en 10 semaines",
+  "plan_10k": [
+    {
+      "semaine": 1,
+      "date": "Du 31 mars au 6 avril",
+      "objectif": "Reprise progressive après le semi-marathon",
+      "total_semaine": "3h45",
+      "seances": [
+        {
+          "jour": "Mardi",
+          "type": "Footing",
+          "details": "45 min à allure confortable",
+          "distance": "7",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 43 min, distance : 7.0 km."
+        },
+        {
+          "jour": "Jeudi",
+          "type": "Footing",
+          "details": "50 min en endurance fondamentale",
+          "distance": "8",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 49 min, distance : 8.0 km."
+        },
+        {
+          "jour": "Samedi",
+          "type": "Sortie longue",
+          "details": "1h à faible intensité",
+          "distance": "10",
+          "description": "Allure cible : 5'30\" (Aerobic Endurance), durée estimée : 55 min, distance : 10.0 km."
+        },
+        {
+          "jour": "Dimanche",
+          "type": "Footing",
+          "details": "30 min + étirements",
+          "distance": "5",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 30 min, distance : 5.0 km."
+        }
+      ]
+    },
+    {
+      "semaine": 2,
+      "date": "Du 7 au 13 avril",
+      "objectif": "Réhabituer le corps à l'intensité",
+      "total_semaine": "4h15",
+      "seances": [
+        {
+          "jour": "Mardi",
+          "type": "Fractionné",
+          "details": "10x 200m à 90% VMA, récup 45s",
+          "distance": "6",
+          "description": "Allure cible : 3'50\" (Anaerobic Endurance), durée estimée : 23 min, distance : 6.0 km."
+        },
+        {
+          "jour": "Jeudi",
+          "type": "Footing",
+          "details": "50 min en endurance fondamentale",
+          "distance": "8",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 49 min, distance : 8.0 km."
+        },
+        {
+          "jour": "Samedi",
+          "type": "Sortie longue",
+          "details": "1h15 en terrain vallonné",
+          "distance": "12",
+          "description": "Allure cible : 5'30\" (Aerobic Endurance), durée estimée : 66 min, distance : 12.0 km."
+        },
+        {
+          "jour": "Dimanche",
+          "type": "Footing + accélérations",
+          "details": "40 min + 5x 100m dynamiques",
+          "distance": "7",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 43 min, distance : 7.0 km."
+        }
+      ]
+    },
+    {
+      "semaine": 3,
+      "date": "Du 14 au 20 avril",
+      "objectif": "Développement de la VMA",
+      "total_semaine": "4h40",
+      "seances": [
+        {
+          "jour": "Mardi",
+          "type": "VMA courte",
+          "details": "10x 300m à 95% VMA, récup 1 min",
+          "distance": "7",
+          "description": "Allure cible : 3'50\" (Anaerobic Endurance), durée estimée : 26 min, distance : 7.0 km."
+        },
+        {
+          "jour": "Jeudi",
+          "type": "Seuil",
+          "details": "3x 2000m à allure 10 km, récup 2 min",
+          "distance": "10",
+          "description": "Allure cible : 4'30\" (Threshold), durée estimée : 45 min, distance : 10.0 km."
+        },
+        {
+          "jour": "Samedi",
+          "type": "Sortie longue",
+          "details": "1h20 en endurance",
+          "distance": "13",
+          "description": "Allure cible : 5'30\" (Aerobic Endurance), durée estimée : 71 min, distance : 13.0 km."
+        },
+        {
+          "jour": "Dimanche",
+          "type": "Footing",
+          "details": "40 min en récupération",
+          "distance": "6",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 37 min, distance : 6.0 km."
+        }
+      ]
+    },
+    {
+      "semaine": 4,
+      "date": "Du 21 au 27 avril",
+      "objectif": "Développement de l'endurance et vitesse",
+      "total_semaine": "5h",
+      "seances": [
+        {
+          "jour": "Mardi",
+          "type": "Fractionné long",
+          "details": "5x 1000m à allure 10 km, récup 1'30",
+          "distance": "8",
+          "description": "Allure cible : 4'10\" (Anaerobic Endurance), durée estimée : 33 min, distance : 8.0 km."
+        },
+        {
+          "jour": "Jeudi",
+          "type": "Seuil",
+          "details": "20 min allure semi-marathon + 10 min allure 10 km",
+          "distance": "10",
+          "description": "Allure cible : 4'30\" (Threshold), durée estimée : 45 min, distance : 10.0 km."
+        },
+        {
+          "jour": "Samedi",
+          "type": "Sortie longue",
+          "details": "1h30 avec 10 min à allure 10 km",
+          "distance": "15",
+          "description": "Allure cible : 5'30\" (Aerobic Endurance), durée estimée : 82 min, distance : 15.0 km."
+        },
+        {
+          "jour": "Dimanche",
+          "type": "Footing",
+          "details": "40 min de récupération",
+          "distance": "6",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 37 min, distance : 6.0 km."
+        }
+      ]
+    },
+    {
+      "semaine": 5,
+      "date": "Du 28 avril au 4 mai",
+      "objectif": "Augmenter l'intensité et l'endurance",
+      "total_semaine": "5h15",
+      "seances": [
+        {
+          "jour": "Mardi",
+          "type": "VMA",
+          "details": "8x 400m à 95% VMA, récup 1 min",
+          "distance": "8",
+          "description": "Allure cible : 4'10\" (Anaerobic Endurance), durée estimée : 33 min, distance : 8.0 km."
+        },
+        {
+          "jour": "Jeudi",
+          "type": "Seuil",
+          "details": "2x 3000m allure 10 km, récup 2 min",
+          "distance": "10",
+          "description": "Allure cible : 4'30\" (Threshold), durée estimée : 45 min, distance : 10.0 km."
+        },
+        {
+          "jour": "Samedi",
+          "type": "Sortie longue",
+          "details": "1h30 avec 3x 5 min allure 10 km",
+          "distance": "15",
+          "description": "Allure cible : 5'30\" (Aerobic Endurance), durée estimée : 82 min, distance : 15.0 km."
+        },
+        {
+          "jour": "Dimanche",
+          "type": "Footing",
+          "details": "40 min récupération",
+          "distance": "6",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 37 min, distance : 6.0 km."
+        }
+      ]
+    },
+    {
+      "semaine": 6,
+      "date": "Du 5 au 11 mai",
+      "objectif": "Travail spécifique 10 km",
+      "total_semaine": "5h30",
+      "seances": [
+        {
+          "jour": "Mardi",
+          "type": "Fractionné long",
+          "details": "6x 1000m allure 10 km, récup 1'30",
+          "distance": "9",
+          "description": "Allure cible : 4'10\" (Anaerobic Endurance), durée estimée : 37 min, distance : 9.0 km."
+        },
+        {
+          "jour": "Jeudi",
+          "type": "Seuil",
+          "details": "4x 2000m allure semi, récup 2 min",
+          "distance": "12",
+          "description": "Allure cible : 4'30\" (Threshold), durée estimée : 54 min, distance : 12.0 km."
+        },
+        {
+          "jour": "Samedi",
+          "type": "Sortie longue",
+          "details": "1h30 en endurance",
+          "distance": "15",
+          "description": "Allure cible : 5'30\" (Aerobic Endurance), durée estimée : 82 min, distance : 15.0 km."
+        },
+        {
+          "jour": "Dimanche",
+          "type": "Footing + éducatifs",
+          "details": "40 min + 5x 100m dynamiques",
+          "distance": "7",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 43 min, distance : 7.0 km."
+        }
+      ]
+    },
+    {
+      "semaine": 7,
+      "date": "Du 12 au 18 mai",
+      "objectif": "Affiner l’allure 10 km",
+      "total_semaine": "5h45",
+      "seances": [
+        {
+          "jour": "Mardi",
+          "type": "VMA",
+          "details": "10x 300m à 100% VMA, récup 45s",
+          "distance": "7",
+          "description": "Allure cible : 4'10\" (Anaerobic Endurance), durée estimée : 29 min, distance : 7.0 km."
+        },
+        {
+          "jour": "Jeudi",
+          "type": "Seuil",
+          "details": "2x 4000m allure 10 km, récup 2 min",
+          "distance": "12",
+          "description": "Allure cible : 4'30\" (Threshold), durée estimée : 54 min, distance : 12.0 km."
+        },
+        {
+          "jour": "Samedi",
+          "type": "Sortie longue",
+          "details": "1h30 avec 10 min à allure 10 km",
+          "distance": "15",
+          "description": "Allure cible : 5'30\" (Aerobic Endurance), durée estimée : 82 min, distance : 15.0 km."
+        },
+        {
+          "jour": "Dimanche",
+          "type": "Footing",
+          "details": "45 min en endurance",
+          "distance": "7",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 43 min, distance : 7.0 km."
+        }
+      ]
+    },
+    {
+      "semaine": 8,
+      "date": "Du 19 au 25 mai",
+      "objectif": "Consolidation et volume",
+      "total_semaine": "6h",
+      "seances": [
+        {
+          "jour": "Mardi",
+          "type": "Fractionné long",
+          "details": "5x 1200m allure 10 km, récup 1'30",
+          "distance": "9",
+          "description": "Allure cible : 4'10\" (Anaerobic Endurance), durée estimée : 37 min, distance : 9.0 km."
+        },
+        {
+          "jour": "Jeudi",
+          "type": "Seuil",
+          "details": "3x 3000m allure semi, récup 2 min",
+          "distance": "12",
+          "description": "Allure cible : 4'30\" (Threshold), durée estimée : 54 min, distance : 12.0 km."
+        },
+        {
+          "jour": "Samedi",
+          "type": "Sortie longue",
+          "details": "1h40 avec 2x 10 min allure 10 km",
+          "distance": "16",
+          "description": "Allure cible : 5'30\" (Aerobic Endurance), durée estimée : 88 min, distance : 16.0 km."
+        },
+        {
+          "jour": "Dimanche",
+          "type": "Footing",
+          "details": "40 min récupération active",
+          "distance": "7",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 43 min, distance : 7.0 km."
+        }
+      ]
+    },
+    {
+      "semaine": 9,
+      "date": "Du 26 mai au 1 juin",
+      "objectif": "Dernière grosse charge",
+      "total_semaine": "6h15",
+      "seances": [
+        {
+          "jour": "Mardi",
+          "type": "VMA courte",
+          "details": "12x 300m à 100% VMA, récup 45s",
+          "distance": "8",
+          "description": "Allure cible : 3'50\" (Anaerobic Endurance), durée estimée : 30 min, distance : 8.0 km."
+        },
+        {
+          "jour": "Jeudi",
+          "type": "Seuil",
+          "details": "2x 5000m allure semi, récup 2 min",
+          "distance": "12",
+          "description": "Allure cible : 4'30\" (Threshold), durée estimée : 54 min, distance : 12.0 km."
+        },
+        {
+          "jour": "Samedi",
+          "type": "Sortie longue",
+          "details": "1h30 avec 10 min allure 10 km",
+          "distance": "15",
+          "description": "Allure cible : 5'30\" (Aerobic Endurance), durée estimée : 82 min, distance : 15.0 km."
+        },
+        {
+          "jour": "Dimanche",
+          "type": "Footing",
+          "details": "40 min récupération",
+          "distance": "7",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 43 min, distance : 7.0 km."
+        }
+      ]
+    },
+    {
+      "semaine": 10,
+      "date": "Du 2 au 8 juin",
+      "objectif": "Affûtage et repos relatif avant la course",
+      "total_semaine": "4h",
+      "seances": [
+        {
+          "jour": "Mardi",
+          "type": "Fractionné court",
+          "details": "6x 400m allure 10 km, récup 1 min",
+          "distance": "6",
+          "description": "Allure cible : 3'50\" (Anaerobic Endurance), durée estimée : 23 min, distance : 6.0 km."
+        },
+        {
+          "jour": "Jeudi",
+          "type": "Seuil léger",
+          "details": "3x 1000m allure 10 km, récup 1'30",
+          "distance": "8",
+          "description": "Allure cible : 4'30\" (Threshold), durée estimée : 36 min, distance : 8.0 km."
+        },
+        {
+          "jour": "Samedi",
+          "type": "Footing",
+          "details": "30 min allure relax",
+          "distance": "5",
+          "description": "Allure cible : 6'10\" (Recovery), durée estimée : 30 min, distance : 5.0 km."
+        },
+        {
+          "jour": "Dimanche",
+          "type": "Course",
+          "details": "10 km objectif sub-40 min",
+          "distance": "10 ",
+          "description": "Allure cible : 3'59\" (Threshold), durée estimée : 39 min, distance : 10.0 km."
+        }
+      ]
+    }
+  ]
+}
