@@ -8,7 +8,11 @@
     "languageChanged": "Language changed to English.",
     "changingLanguage": "Changing language...",
     "logout": "Logout",
-    "profile": "Profile"
+    "profile": "Profile",
+    "analytics": "Analytics",
+    "gear": "Gear",
+    "yearInSport": "Year in Sport",
+    "advanced": "Advanced"
   },
   "pages": {
     "home": {

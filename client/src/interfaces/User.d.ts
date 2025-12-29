@@ -12,4 +12,6 @@ export interface UserInterface {
   __v?: number;
   avatar?: string;
   auth_type: string;
+  strava_connected?: boolean;
+  strava_athlete_id?: number;
 }

@@ -11,6 +11,7 @@ export const axiosConfig = axios.create({
 axiosConfig.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("accessToken");
+    console.log("[Axios] Request to:", config.url, "| Token exists:", !!token);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

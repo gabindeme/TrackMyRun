@@ -13,6 +13,7 @@ import { useConfigContext } from "@/contexts/configContext";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { OAuth } from "@/components/customs/oauth";
+import { StravaOAuth } from "@/components/customs/stravaOAuth";
 
 export const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -108,13 +109,16 @@ export const Login = () => {
                 {t("pages.login.login_button")}
               </Button>
 
+              {/* OAuth Options */}
+              <div className="relative text-sm text-center after:border-border after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
+                <span className="relative z-10 px-2 bg-background text-muted-foreground">{t("pages.login.or_continue_with")}</span>
+              </div>
+
+              {/* Strava OAuth - Always show for TrackMyRun */}
+              <StravaOAuth message={t("pages.login.login_button") + " with Strava"} />
+
               {import.meta.env.VITE_FIREBASE_API_KEY && (
-                <>
-                  <div className="relative text-sm text-center after:border-border after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
-                    <span className="relative z-10 px-2 bg-background text-muted-foreground">{t("pages.login.or_continue_with")}</span>
-                  </div>
-                  <OAuth message="pages.login.login_button" />
-                </>
+                <OAuth message="pages.login.login_button" />
               )}
             </form>
           </Form>

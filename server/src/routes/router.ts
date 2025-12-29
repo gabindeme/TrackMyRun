@@ -5,6 +5,9 @@ import { authRouter } from "./authenticationRoutes.js";
 import { configRouter } from "./configRoutes.js";
 import { logRouter } from "./logsRoutes.js";
 import { uploadRouter } from "./uploadRoutes.js";
+import { stravaRouter } from "./stravaRoutes.js";
+import { activitiesRouter } from "./activitiesRoutes.js";
+import { gearRouter } from "./gearRoutes.js";
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -18,6 +21,9 @@ router.use("/api/users", userRouter); // User-related routes
 router.use("/api/auth", authRouter); // Authentication routes
 router.use("/api/logs", logRouter); // Logging routes
 router.use("/api/config", configRouter); // Config routes
+router.use("/api/strava", stravaRouter); // Strava OAuth and sync routes
+router.use("/api/activities", activitiesRouter); // Activities and analytics routes
+router.use("/api/gear", gearRouter); // Gear tracking routes
 
 // // UPLOADS routes
 router.use("/api/uploads", uploadRouter); // File upload routes

@@ -13,6 +13,12 @@ const UserSchema = new Schema<IUser>(
     role: { type: String, default: userRoles.USER },
     avatar: { type: String, default: "" },
     auth_type: { type: String, default: authTypes.LOCAL },
+    // Strava OAuth fields
+    strava_athlete_id: { type: Number },
+    strava_access_token: { type: String, select: false },
+    strava_refresh_token: { type: String, select: false },
+    strava_token_expires_at: { type: Number },
+    strava_connected: { type: Boolean, default: false },
   },
   { timestamps: true },
 );

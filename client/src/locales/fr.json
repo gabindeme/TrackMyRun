@@ -8,7 +8,11 @@
     "languageChanged": "Langage changé en français.",
     "changingLanguage": "Changement de langage...",
     "logout": "Se déconnecter",
-    "profile": "Profil"
+    "profile": "Profil",
+    "analytics": "Analytiques",
+    "gear": "Matériel",
+    "yearInSport": "Année en sport",
+    "advanced": "Avancé"
   },
   "pages": {
     "home": {

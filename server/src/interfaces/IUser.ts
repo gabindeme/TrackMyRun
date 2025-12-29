@@ -11,4 +11,10 @@ export interface IUser extends Document {
   avatar: string;
   auth_type: string;
   fullname?: string; // virtual
+  // Strava OAuth fields
+  strava_athlete_id?: number;
+  strava_access_token?: string;
+  strava_refresh_token?: string;
+  strava_token_expires_at?: number;
+  strava_connected?: boolean;
 }

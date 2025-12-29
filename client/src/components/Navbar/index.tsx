@@ -3,7 +3,7 @@ import { ThemeChanger } from "./themeChanger";
 import { LanguageChanger } from "./languageChanger";
 import { useTranslation } from "react-i18next";
 import { Separator } from "../ui/separator";
-import { Home, House, LogOut, Menu, User, Wrench, X } from "lucide-react";
+import { Home, House, LogOut, Menu, User, Wrench, X, BarChart2, Trophy, Settings, LayoutDashboard } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
@@ -64,16 +64,40 @@ export const Navbar = () => {
       auth: true,
     },
     {
+      label: t("navbar.dashboard"),
+      path: "/dashboard",
+      icon: LayoutDashboard,
+      auth: !!authUser,
+    },
+    {
       label: t("navbar.account"),
       path: "/account",
       icon: User,
       auth: true,
     },
     {
-      label: t("navbar.dashboard"),
+      label: "Admin",
       path: "/admin/dashboard",
       icon: Wrench,
       auth: authUser?.role === "admin",
+    },
+  ];
+
+  const analyticsLinks = [
+    {
+      label: t("navbar.analytics"),
+      path: "/analytics",
+      icon: BarChart2,
+    },
+    {
+      label: t("navbar.gear"),
+      path: "/gear",
+      icon: Settings,
+    },
+    {
+      label: t("navbar.yearInSport"),
+      path: "/year-in-sport",
+      icon: Trophy,
     },
   ];
 
@@ -82,6 +106,31 @@ export const Navbar = () => {
       label: t("navbar.home"),
       path: "/",
       icon: House,
+      auth: true,
+    },
+    {
+      label: t("navbar.dashboard"),
+      path: "/dashboard",
+      icon: LayoutDashboard,
+      auth: !!authUser,
+    },
+    {
+      label: t("navbar.analytics"),
+      path: "/analytics",
+      icon: BarChart2,
+      auth: !!authUser,
+    },
+    {
+      label: t("navbar.gear"),
+      path: "/gear",
+      icon: Settings,
+      auth: !!authUser,
+    },
+    {
+      label: t("navbar.yearInSport"),
+      path: "/year-in-sport",
+      icon: Trophy,
+      auth: !!authUser,
     },
     {
       label: t("navbar.account"),
@@ -90,7 +139,7 @@ export const Navbar = () => {
       auth: !!authUser,
     },
     {
-      label: t("navbar.dashboard"),
+      label: "Admin",
       path: "/admin/dashboard",
       icon: Wrench,
       auth: authUser?.role === "admin",
@@ -116,6 +165,29 @@ export const Navbar = () => {
                         {link.label}
                       </Button>
                     ))}
+
+                  {/* Analytics Dropdown */}
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="link" className="flex items-center gap-1">
+                        {t("navbar.advanced")} <BarChart2 className="w-4 h-4 ml-1" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuGroup>
+                        {analyticsLinks.map((link) => (
+                          <DropdownMenuItem
+                            key={link.path}
+                            onClick={() => navigate(link.path)}
+                            className="cursor-pointer"
+                          >
+                            <link.icon className="mr-2 h-4 w-4" />
+                            <span>{link.label}</span>
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
 
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild className="hover:cursor-pointer">
